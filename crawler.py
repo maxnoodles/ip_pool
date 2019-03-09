@@ -100,16 +100,16 @@ class Crawler(object, metaclass=ProxyMetaclass):
             yield ':'.join([ip.strip(), port.strip()])
 
 
-    # def crawl_xicidaili(self, page_count=3):
-    #     for i in range(1, page_count+1):
-    #         url = 'https://www.xicidaili.com/nn/{}'.format(i)
-    #         print('Crawling', url)
-    #         html = self.get_page(url)
-    #         contents = html.xpath('//table[@id="ip_list"]//tr')[1:]
-    #         for content in contents:
-    #             ip = content.xpath('./td[2]/text()')[0]
-    #             port = content.xpath('./td[3]/text()')[0]
-    #             yield ':'.join([ip, port])
+    def crawl_xicidaili(self, page_count=3):
+        for i in range(1, page_count+1):
+            url = 'https://www.xicidaili.com/nn/{}'.format(i)
+            print('Crawling', url)
+            html = self.get_page(url)
+            contents = html.xpath('//table[@id="ip_list"]//tr')[1:]
+            for content in contents:
+                ip = content.xpath('./td[2]/text()')[0]
+                port = content.xpath('./td[3]/text()')[0]
+                yield ':'.join([ip, port])
 
 
 
