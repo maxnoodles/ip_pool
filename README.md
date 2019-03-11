@@ -1,4 +1,4 @@
-# ip_pool
+# 异步检测 多进程ip_pool
 ip代理池
 python3.6 + request + Flask + redis  
 运行schedule.py  
